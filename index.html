@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+
+<body>
+    <div class="scoreboard--container">
+        <div class="top--wrapper">
+<!--TOP LEFT SCORE-->
+            <div class="top__left">
+                <div class="top--left__left">
+                    <div class="fouls">
+                        FOULS
+                    </div>
+                    <div id="home-last-score" class="last--score__num">
+                        50
+                    </div>
+                    <div id="home-win" class="win center-helper">
+                        WINNING!
+                    </div>
+                </div>
+                <div class="top--left__right">
+                    <div id="foul-num">
+                        2
+                    </div>
+                    <div class="fouls">
+                        TOL
+                    </div>
+                </div>
+            </div>
+<!--TOP MIDDLE SCORE-->
+            <div class="top__middle">
+                <div class="top__middle--top">
+                    <div class="middle--top__left">
+                        <div class="fouls">PLAYER</div>
+                        <div id="player-num" class="last--score__num">
+                            17
+                        </div>
+                    </div>
+                    <div class="middle--top__right">
+                        <div class="fouls">FOULS</div>
+                        <div id="foul-total" class="last--score__num">
+                            2
+                        </div>
+                    </div>
+                </div>
+                <div class="win center-helper">GAME</div>
+            </div>
+<!--TOP RIGHT SCORE-->
+            <div class="top__right">
+                <div class="top--left__right">
+                    <div id="foul-num">
+                        2
+                    </div>
+                    <div class="fouls">
+                        TOL
+                    </div>
+                </div>
+
+                <div class="top--left__left">
+                    <div class="fouls">
+                        FOULS
+                    </div>
+                    <div id="home-last-score" class="last--score__num">
+                        <div class="glass">
+                             50
+                        </div>
+                    </div>
+                
+                    <div id="home-win" class="win center-helper">
+                         WINNING!
+                    </div>
+                </div>
+            </div>
+        </div>
+<!------Bottom Scoreboard-->
+   <div class="bottom--wrapper">
+        <div class="home--team">
+            <div class="team__name">
+                TIGERS
+            </div>
+            <div class="team__score">
+                <div id="tiger--score"  class="team--score--num">0</div>
+                <div id="team--score--gray">888</div>
+            </div>
+            <div class="team__break__left">
+                <div class="b--wrapper--l b--l">
+                    <div id="break--b">
+                        B
+                    </div>
+                    <div id="break--bb">
+                        B
+                    </div>
+                </div>
+                <div id="arrow__left" style="color: #DC9B1B">
+                    ◀︎
+                </div>
+            </div>
+        </div> 
+        <div class="bottom--middle">
+            <div class="fill-helper">
+                <div class="timer--wrapper">
+                    <div class="timer" id="time">00:30</div>
+                    <div class="timer--2">88:88</div>
+                    <div class="timer--3">:</div>
+                </div>
+             
+            </div>
+            <div class="period--wrapper">
+                <div class="specturm">SPECTRUM</div>
+                <div id="period" class="last--score__num__bottom">
+                    1
+                </div>
+                <div class="fouls" style="font-size: 1.2rem">PERIOD</div> 
+            </div>
+        </div>
+        <div class="visitor--team">
+            <div class="team__name">
+                VISITOR
+            </div>
+                <div class="team__score">
+                    <div id="visitor--score" class="team--score--num">0</div>
+                    <div id="team--score--gray">888</div>
+                </div>
+                <div class="team__break__right">
+                    <div class="b--wrapper--r">
+                        <div id="arrow__right" style="color: #DC9B1B; font-size: 1.4rem;">
+                            ▶︎
+                        </div>
+                        <div id="break--b" class="b--r">
+                            B
+                        </div>
+                        <div id="break--bb">
+                            B
+                        </div>
+                    </div>
+                </div>
+            </div> 
+        </div>
+   </div>
+
+
+</div>
+<div class="control--panel--container">
+    <button onclick="add1H()" id="btn"> 1 point</button>
+    <button onclick="add2H()" id="btn"> 2 point</button>
+    <button onclick="add3H()" id="btn"> 3 point</button>
+    <button onclick="add1A()" id="btn"> 1 point</button>
+    <button onclick="add2A()" id="btn"> 2 point</button>
+    <button onclick="add3A()" id="btn"> 3 point</button>
+    
+</div>
+
+<div class="inspiration">
+    <img src="score.png">
+</div>
+
+<script src="index.js"></script>
+</body>
+</html>

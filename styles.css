@@ -1,0 +1,395 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "CustomFont";
+    src: url("manual-condensed-extrabold-italic.otf");
+}
+
+  @font-face {
+    font-family: 'Patopian 1986';
+    src: url('patopian 1986.ttf');
+  }
+
+/******* UTILITY ***********/
+.center-helper{
+    text-align: center;
+}
+
+.fill-helper{
+    width: 100%;
+    height: auto;
+    background: linear-gradient(0deg, rgb(10, 10, 10, 0) 50%, #DC9B1B 50%);
+}
+
+/********* END ************/
+
+body{
+    font-family: "CustomFont";
+    width: 100vh;
+    height: auto;
+    background-image:url(basketball-arena.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin: 5% 50% 0 28%;
+    background-color: #0A0A0D;
+    overflow: hidden;
+
+}
+.scoreboard--container{
+    display: flex;
+    flex-direction: column;
+    width: 600px;
+    height: 275px;
+    border-radius: 8px;
+    background-color: rgb(17, 17, 17);
+    border-radius: 10px; -moz-border-radius: 10px; -webkit-border-radius: 10px;
+    border: 3px solid #DC9B1B;
+}
+
+.top--wrapper{
+    display: flex;
+    flex-direction: row;
+ 
+}
+
+.top__left{
+    display: flex;
+    flex: .90;
+    flex-direction: row;
+    border-right: 3px solid #DC9B1B;
+    padding: 2px 10px 10px 3px;
+
+}
+
+.top--left__left{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+}
+.fouls{
+    color: rgb(223, 221, 221);
+    font-size: 1.5rem;
+}
+
+.last--score__num{
+
+    width: 70px;
+    height: 43px;
+    color: #eecc0ce1;
+    font-size: 3rem;
+    background-color: rgb(65, 63, 63);
+    text-align: center;
+    line-height: 50px;
+    padding: 4px;
+    box-shadow: inset 0 0 10px #161616;
+    text-shadow: rgba(255,162,0,0.76) 0px 0px 5px;
+    font-family: 'Patopian 1986', sans-serif;
+}
+
+
+
+    .win{
+        width: 100%;
+        padding-top: 4px;
+       color: #eecc0ce1;
+       font-size: 1rem;
+    }
+    .top--left__right{
+        display: flex;
+        flex: 1;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 28px;
+    }
+
+    #foul-num{
+      width: 30px;
+      height: 30px; 
+      color:  #F52A29;
+      font-size: 2rem;
+      line-height: 2rem;
+      background-color:#292828;
+      text-align: center;
+      padding-top: 3px;
+      text-shadow: rgba(255, 30, 0, 0.76) 0px 0px 5px;
+      font-family: 'Patopian 1986';
+    }
+/******************** TOP MIDDLE **********************/
+
+.top__middle{
+    display: flex;
+    flex: 1.2;
+    flex-direction: column;
+    border-right: 3px solid #DC9B1B;
+    padding: 2px 10px 10px 3px;
+}
+.top__middle--top{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+}
+
+
+
+/********************* TOP RIGHT **********************/
+
+
+.top__right{
+    display: flex;
+    flex: .90;
+    flex-direction: row;
+    padding: 2px 10px 10px 3px;
+}
+
+/*********************** BOTTOM *********************/
+
+
+.bottom--wrapper{
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.home--team{
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    position: relative;
+}
+
+.team__name{
+    color: rgb(223, 221, 221);
+    font-size: 2rem;
+    background-color: #DC9B1B;
+    text-shadow: -3px 3px 0 #0c0c0c, -4px 3px 0 #070707, -4px 3px 0 rgba(0,0,0,0);
+    -webkit-text-stroke: 1px black;
+    text-align: center;
+    padding-bottom: 4px;
+}
+
+.team__score{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    color: #eecc0ce1;
+    font-size: 5rem;
+    line-height: 6rem;
+    box-shadow: inset 0 0 10px #161616;
+    font-family: 'Patopian 1986', sans-serif;
+    margin-top: 4px;
+    padding: 0 6px;
+    
+}
+
+.team--score--num{
+    position: absolute;
+    text-shadow: rgba(255,162,0,0.76) 0px 0px 5px;
+    background-color: rgba(48, 46, 46, 0);
+    padding-right: 1rem;
+    z-index: 1;
+}
+#team--score--gray{
+    position: absolute;
+    padding-right: 1rem;
+    color: rgba(128, 128, 128, 0.308);
+}
+.team__break__left{
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    bottom: -3px;
+    left: -3px;
+    width: 100%;
+    height: 40px;
+    background-color: rgb(20, 20, 20);
+    border-bottom-right-radius: 40px;
+    border-top-right-radius: 40px;
+    border-bottom-left-radius: 20px;
+    border: 3px solid #DC9B1B;
+    color:#F52A29;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    padding-right: 16px;
+}
+
+.b--wrapper--l{
+    display: flex;
+    width: 40%;
+    justify-content: space-between;
+    margin: 4px;
+    
+}
+
+.b--l{
+    padding-left: 12px;
+}
+
+#arrow__left{
+    display: flex;
+    flex: 1;
+    width: 100%;
+    justify-content: flex-end;
+    margin-top: 3px;
+    padding-right: 8px;
+    text-shadow: rgba(255,162,0,0.76) 0px 0px 5px;
+}
+/******* BOTTOM MIDDLE **********/
+
+.bottom--middle{
+    flex: 2
+
+}
+
+.timer--wrapper{
+    position: relative;
+    width: 100%;
+    height: 80px;
+    background-color: rgb(20, 20, 20);
+    border-radius: 40px; -moz-border-radius: 40px; -webkit-border-radius: 40px;
+    border: 3px solid #DC9B1B;
+}
+.timer{
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    font-size: 5rem;
+    line-height: 6rem;
+    color: #F52A29;
+    text-shadow: rgba(255, 0, 0, 0.76) 0px 0px 5px;
+    font-family: 'Patopian 1986', sans-serif;
+}
+.timer--2{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    font-size: 5rem;
+    line-height: 6rem;
+    color: #aca7a73b;
+    font-family: 'Patopian 1986', sans-serif;
+}
+
+.timer--3{
+    position:absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+    text-align: center;
+    font-size: 5rem;
+    line-height: 6rem;
+    z-index: 2;
+    color:#DC9B1B;
+    font-family: 'Patopian 1986', sans-serif;
+}
+.period--wrapper{
+    width: 90%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.last--score__num__bottom{
+
+    width: 39px;
+    height: 43px;
+    color: #eecc0ce1;
+    font-size: 3rem;
+    background-color: rgb(65, 63, 63);
+    text-align: center;
+    line-height: 50px;
+    padding: 4px;
+    box-shadow: inset 0 0 10px #161616;
+    text-shadow: rgba(255,162,0,0.76) 0px 0px 5px;
+    font-family: 'Patopian 1986', sans-serif;
+}
+
+.specturm{
+    font-size: 1rem;
+    color: #D8910F;
+    font-style: italic;
+    line-height: 1rem;
+
+}
+
+
+.visitor--team{
+    position: relative;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+.team__break__right{
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    bottom: -3px;
+    right: -3px;
+    width: 100%;
+    height: 40px;
+    background-color: rgb(20, 20, 20);
+    border-bottom-left-radius: 40px;
+    border-top-left-radius: 40px;
+    border-bottom-right-radius: 20px;
+    border: 3px solid #DC9B1B;
+    color:#F52A29;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    padding-left: 16px;
+    
+}
+
+.b--r{
+    padding-right: 8px;
+}
+.b--wrapper--r{
+    display: flex;
+    width: 90%;
+    justify-content: space-between;
+    margin: 4px;
+    
+}
+
+#arrow__right{
+    display: flex;
+    flex: 1;
+    width: 50%;
+    justify-content: flex-start;
+    margin-top: 3px;
+    padding-right: 8px;
+    text-shadow: rgba(255,162,0,0.76) 0px 0px 5px;
+ 
+}
+
+
+/******************* CONTROL PANEL *******************/
+
+.control--panel--container{
+    width: 600px;
+    height: 200px;
+    background-color: rgb(30, 13, 70);
+    border-bottom-left-radius: 40px;
+    border-bottom-right-radius: 40px;
+    box-shadow: inset 5 5 30px #161616;
+}
+
+img{
+    margin-top: 7%;
+    margin-left: 10%;
+    width: 50%
+}
