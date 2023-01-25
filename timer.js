@@ -1,6 +1,9 @@
 let period = document.getElementById("period")
 let perNum = 1
+let lScore = document.getElementById("home-last-score")
+let currentScore = scoreH
 
+console.log(currentScore)
 function startTimer(duration, display) {
     
     
@@ -17,8 +20,12 @@ function startTimer(duration, display) {
         if (--timer < 0) {
             timer = duration;
             period.textContent = perNum += 1
-
-        }else if(period.textContent >= 2){
+            console.log(currentScore)
+        }
+        
+        
+        
+        else if(period.textContent == 4){
             console.log("winner!")
            
         }

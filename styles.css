@@ -399,11 +399,11 @@ img{
 
 .team--button--home{
     width: 30%;
-    background-color: #cf9c9c;
+
 }
 .team--button--away{
     width: 30%;
-    background-color: #cf9c9c;
+
 }
 .team--button--wrapper{
     width: 100%;
@@ -411,7 +411,6 @@ img{
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    background-color: #F52A29;
     flex-wrap: nowrap;
     padding: 10px 8px;
 }
