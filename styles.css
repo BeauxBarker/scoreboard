@@ -110,7 +110,7 @@ body{
         margin-top: 28px;
     }
 
-    #foul-num{
+    .foul--num{
       width: 30px;
       height: 30px; 
       color:  #F52A29;

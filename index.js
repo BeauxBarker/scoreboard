@@ -1,50 +1,95 @@
-let btn = document.getElementById("btn")
+
 let home = document.getElementById("tiger--score")
 let visit = document.getElementById("visitor--score")
 let scoreH = 0
 let scoreA = 0
 let homeValue = [ ]
+let visitValue = [ ]
 
 
-
+//******* HOME Buttons **********//
 
 function add1H(){
     home.textContent = scoreH += 1
-    homeValue.push(scoreH)
-    
+    homeValue.push(scoreH) 
 }
 
 function add2H(){
     home.textContent = scoreH += 2
     homeValue.push(scoreH)
-    
 }
 
 function add3H(){
     home.textContent = scoreH += 3
-    homeValue.push(scoreH)
-    
+    homeValue.push(scoreH)  
 }
 
 
 
+
+/********** VISIT BUTTONS **********/
+
 function add1A(){
     visit.textContent = scoreA += 1
+    visitValue.push(scoreA)
     
 }
 function add2A(){
     visit.textContent = scoreA += 2
+    visitValue.push(scoreA)
+    
 }
 function add3A(){
     visit.textContent = scoreA += 3
+    visitValue.push(scoreA)
+    
 }
 
 
 
-let savedScore = document.getElementById("home--last--score")
-let period = document.getElementById("period")
+
+/*********** FOULS ***************/
+
+const foulH = document.getElementById("foul-num-h")
+const foulHbtn = document.getElementById("foul-btn")
+const foulA = document.getElementById("foul-num-a")
+const foulAbtn = document.getElementById("foul-btn-a")
+const foulTotal = document.getElementById("foul-total")
+const playerNum = document.getElementById("player-num")
+
+let foulHScore = 0
+let foulAScore = 0
+let playerTotalFoul = 0
+
+
+
+
+foulHbtn.addEventListener("click", function(){
+    foulH.textContent = foulHScore += 1
+    foulTotal.textContent = playerTotalFoul = 1
+    console.log(foulHScore)
+    playerNum.textContent = Math.floor(Math.random() * 100)
+})
+
+
+foulAbtn.addEventListener("click", function(){
+    foulA.textContent = foulAScore += 1
+})
+
+
+
+/*********** TIMER ***************/
+
+const savedScore = document.getElementById("home--last--score")
+const savedScoreVisit = document.getElementById("visit--last--score")
+const period = document.getElementById("period")
+const homeWin = document.getElementById("home-win")
+const visitWin = document.getElementById("visit-win")
+
 let perNum = 1
-let sum = 0
+let sumH = 0
+let sumA = 0
+
 
 
 
@@ -70,32 +115,51 @@ function startTimer(duration, display) {
      
             for (const [i, value] of homeValue.entries()) {
                 if (i === homeValue.length - 1) {
-                    
-
-                    sum += homeValue[i]
-                    savedScore.textContent = sum
+                    sumH += homeValue[i]
+                    savedScore.textContent = sumH
                     homeValue[i] = 0
                     
-                 
+             
                 }
             } 
-           
-            console.log(sum)
+            for (const [i, value] of visitValue.entries()) {
+                if (i === visitValue.length - 1) {
+                    
+
+                    sumA += visitValue[i]
+                    savedScoreVisit.textContent = sumA
+                    visitValue[i] = 0
+                    visit.textContent = 0
+                    
+                }
+            } 
             
-        
+            
+            scoreA = 0
             scoreH = 0
-            
+
+
         }
+
+
+
        
-        
-        
-        
-        
-        else if(period.textContent === 4){
-            console.log("winner!")
-           
+        if(perNum === 1){
+            homeWin.textContent = " ";
+            visitWin.textContent = " ";
         }
-            
+        else if(sumH === sumA){
+            homeWin.textContent = "TIE";
+            visitWin.textContent = "TIE";
+        }else if(sumH < sumA){
+            visitWin.textContent = "WINNING!";
+            homeWin.textContent = " ";
+        }else{
+            homeWin.textContent = "WINNING";
+            visitWin.textContent = " ";
+        }
+        
+        
   
         
     }, 1000);

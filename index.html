@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Scoreboard by Beaux</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -16,18 +16,18 @@
             <div class="top__left">
                 <div class="top--left__left">
                     <div class="fouls">
-                        FOULS
+                        SCORE
                     </div>
-                    <div id="home--last--score" for="numberh" class="last--score__num">
+                    <div id="home--last--score"  class="last--score__num">
                         
                     </div>
                     <div id="home-win" class="win center-helper">
-                        WINNING!
+                        
                     </div>
                 </div>
                 <div class="top--left__right">
-                    <div id="foul-num">
-                        2
+                    <div id="foul-num-h" class="foul--num">
+                        
                     </div>
                     <div class="fouls">
                         TOL
@@ -40,13 +40,13 @@
                     <div class="middle--top__left">
                         <div class="fouls">PLAYER</div>
                         <div id="player-num" class="last--score__num">
-                            17
+                            
                         </div>
                     </div>
                     <div class="middle--top__right">
                         <div class="fouls">FOULS</div>
                         <div id="foul-total" class="last--score__num">
-                            2
+                            
                         </div>
                     </div>
                 </div>
@@ -55,8 +55,8 @@
 <!--TOP RIGHT SCORE-->
             <div class="top__right">
                 <div class="top--left__right">
-                    <div id="foul-num">
-                        2
+                    <div id="foul-num-a" class="foul--num">
+                        
                     </div>
                     <div class="fouls">
                         TOL
@@ -65,16 +65,14 @@
 
                 <div class="top--left__left">
                     <div class="fouls">
-                        FOULS
+                        SCORE
                     </div>
-                    <div id="home-last-score" class="last--score__num">
-                        <div class="glass">
-                             50
-                        </div>
+                    <div id="visit--last--score" class="last--score__num">
+                         
                     </div>
                 
-                    <div id="home-win" class="win center-helper">
-                         WINNING!
+                    <div id="visit-win" class="win center-helper">
+                         
                     </div>
                 </div>
             </div>
@@ -150,22 +148,24 @@
 <div class="control--panel--container">
     <div class="team--button--wrapper">
         <div class="team--button--home">
-            <button onclick="add1H()" class="btnp">1</button>
-            <button onclick="add2H()" class="btnp">2</button>
-            <button onclick="add3H()" class="btnp">3</button>
+            <button onclick="add1H()" class="btnp" aria-label="add 1 points">1</button>
+            <button onclick="add2H()" class="btnp" aria-label="add 2 points">2</button>
+            <button onclick="add3H()" class="btnp"  aria-label="add 3 points">3</button>
         </div>
         <div class="team--button--away">
-            <button onclick="add1A()" class="btnp">1</button>
-            <button onclick="add2A()" class="btnp">2</button>
-            <button onclick="add3A()" class="btnp">3</button>
+            <button onclick="add1A()" class="btnp" aria-label="add 1 points">1</button>
+            <button onclick="add2A()" class="btnp" aria-label="add 2 points">2</button>
+            <button onclick="add3A()" class="btnp" aria-label="add 3 points">3</button>
         </div>
     </div>  
+    <button id="foul-btn" aria-label="add 1 point to foul">FOUL!</button>
+    <button id="foul-btn-a" aria-label="add 1 point to foul">FOUL!</button>
 </div>
 
 <div class="inspiration">
     <img src="score.png">
 </div>
-<!--<script src="timer.js"></script>-->
+
 <script src="index.js"></script>
 </body>
 </html>
