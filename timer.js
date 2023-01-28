@@ -1,54 +1,69 @@
-// 10 minutes from now
-var time_in_minutes = 1;
-var current_time = Date.parse(new Date());
-var deadline = new Date(current_time + time_in_minutes*60*1000);
+
+/**** code with pause button to review (not used code) ****/
 
 
-function time_remaining(endtime){
-	var t = Date.parse(endtime) - Date.parse(new Date());
-	var seconds = Math.floor( (t/1000) % 60 );
-	var minutes = Math.floor( (t/1000/60) % 60 );
+// Defines identifiers for accessing HTML elements
+const minutesInput = document.getElementById("minutesInput"),
+      startButton = document.getElementById("startButton"),
+      pauseButton = document.getElementById("pauseButton"),
+      unpauseButton = document.getElementById("unpauseButton"),
+      counterDiv = document.getElementById("counterDisplay");
 
-	return {'total':t,'minutes':minutes, 'seconds':seconds};
+// Adds listeners and declares global variables
+startButton.addEventListener('click', start);
+pauseButton.addEventListener('click', pauseTimer);
+unpauseButton.addEventListener('click', runTimer);
+let totalSeconds; // global variable to count down total seconds
+let timer; // global variable for setInterval and clearInterval 
+
+//Disables buttons that are not needed yet
+disable(pauseButton);
+disable(unpauseButton);
+
+
+// Defines functions that get the minutes and seconds for display
+function getMinutes(totalSeconds){
+  return Math.floor(totalSeconds / 60); // Gets quotient rounded down 
 }
 
-var timeinterval;
-function run_clock(id,endtime){
-	var clock = document.getElementById(id);
-	function update_clock(){
-		var t = time_remaining(endtime);
-		clock.innerHTML = +t.minutes+':'+t.seconds;
-		if(t.total<=0){ clearInterval(timeinterval); }
-	}
-	update_clock(); // run function once at first to avoid delay
-	timeinterval = setInterval(update_clock,1000);
-}
-run_clock('clockdiv',deadline);
-
-
-var paused = false; // is the clock paused?
-var time_left; // time left on the clock when paused
-
-function pause_clock(){
-	if(!paused){
-		paused = true;
-		clearInterval(timeinterval); // stop the clock
-		time_left = time_remaining(deadline).total; // preserve remaining time
-	}
+function getSeconds(totalSeconds){
+ let seconds = totalSeconds % 60; // Gets remainder after division
+ return (seconds < 10 ? "0" + seconds : seconds) // Inserts "0" if needed
 }
 
-function resume_clock(){
-	if(paused){
-		paused = false;
 
-		// update the deadline to preserve the amount of time remaining
-		deadline = new Date(Date.parse(new Date()) + time_left);
-
-		// start the clock
-		run_clock('clockdiv',deadline);
-	}
+// Defines functions that manipulate the countdown
+function start(){
+  totalSeconds = minutesInput.value * 60; // Sets initial value of totalSeconds based on user input
+  counterDiv.innerHTML = getMinutes(totalSeconds) + ":" + getSeconds(totalSeconds); // Initializes display
+  disable(minutesInput); disable(startButton); // Toggles buttons
+  runTimer();
 }
 
-// handle pause and resume button clicks
-document.getElementById('pause').onclick = pause_clock;
-document.getElementById('resume').onclick = resume_clock;
+function runTimer(){
+  // Is the main timer function, calls `tick` every 1000 milliseconds
+  timer = setInterval(tick, 1000);
+  disable(unpauseButton); enable(pauseButton); // Toggles buttons
+}
+
+function tick(){
+  if(timer > 0){
+    totalSeconds--; // Decreases total seconds by one
+    counterDiv.innerHTML = getMinutes(totalSeconds) + ":" + getSeconds(totalSeconds); // Updates display
+  }
+  else{
+    
+    
+  }
+}
+
+function pauseTimer(){
+  // Stops calling `tick` and toggles buttons
+  clearInterval(timer);
+  disable(pauseButton); enable(unpauseButton);
+}
+
+
+// Defines functions to disable and re-enable HTML elements
+function disable(element){ element.setAttribute("disabled",""); }
+function enable(element){ element.removeAttribute("disabled"); }

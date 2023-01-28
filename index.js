@@ -50,12 +50,12 @@ function add3A(){
 
 /*********** FOULS ***************/
 
-const foulH = document.getElementById("foul-num-h")
-const foulHbtn = document.getElementById("foul-btn")
-const foulA = document.getElementById("foul-num-a")
-const foulAbtn = document.getElementById("foul-btn-a")
-const foulTotal = document.getElementById("foul-total")
-const playerNum = document.getElementById("player-num")
+let foulH = document.getElementById("foul-num-h"),
+    foulHbtn = document.getElementById("foul-btn"),
+    foulA = document.getElementById("foul-num-a"),
+    foulAbtn = document.getElementById("foul-btn-a"),
+    foulTotal = document.getElementById("foul-total"),
+    playerNum = document.getElementById("player-num");
 
 let foulHScore = 0
 let foulAScore = 0
@@ -80,22 +80,24 @@ foulAbtn.addEventListener("click", function(){
 
 /*********** TIMER ***************/
 
-const savedScore = document.getElementById("home--last--score")
-const savedScoreVisit = document.getElementById("visit--last--score")
-const period = document.getElementById("period")
-const homeWin = document.getElementById("home-win")
-const visitWin = document.getElementById("visit-win")
+let   savedScore = document.getElementById("home--last--score"),
+      savedScoreVisit = document.getElementById("visit--last--score"),
+      period = document.getElementById("period"),
+      homeWin = document.getElementById("home-win"),
+      visitWin = document.getElementById("visit-win"),
+      pauseTimer = document.getElementById("pause");
+      
 
-let perNum = 1
-let sumH = 0
-let sumA = 0
-
+let perNum = 1 // which period we are in
+let sumH = 0 // total score for home
+let sumA = 0 // total score for visitors
 
 
 
 function startTimer(duration, display) {
-   
-    var timer = duration, minutes, seconds;
+
+    let timer = duration, minutes, seconds;
+    let endTimer = 0;
     setInterval(function () {
        
 
@@ -106,12 +108,49 @@ function startTimer(duration, display) {
         seconds = seconds < 10 ? "0" + seconds : seconds;
 
         display.textContent = minutes + ":" + seconds;
+        
+        if(timer === 30){
+            endTimer += 1;
+        }
+        if (endTimer === 4){
+            const gg1 = document.getElementById("gameover1");
+            const gg2 = document.getElementById("gameover2");
+            const gg3 = document.getElementById("gameover3");
+        
+        if(sumH === sumA){
+                gg1.style.display = "block";
+            }else if(sumH > sumA){
+                gg2.style.display = "block";
+                }else{gg3.style.display = "block";}
+        }        
+            
+        else if (endTimer > 4){
+            startConfetti()
+            
+    
+            timer = " ";
+            perNum = 1;
+            foulHScore = 0;
+            foulAScore = 0;
+            period.textContent = 1
+            foulH.textContent = 0
+            foulA.textContent = 0
+            foulTotal.textContent = " "
+            playerNum.textContent = " "
 
-        if (--timer < 0) {
-           
+         
+
+        }
+     
+
+        else if (--timer < 0) {
+            
             timer = duration;
+       
+
             period.textContent = perNum += 1;
-            home.textContent = timer - 15;
+            home.textContent = timer - 30;
+
      
             for (const [i, value] of homeValue.entries()) {
                 if (i === homeValue.length - 1) {
@@ -141,7 +180,7 @@ function startTimer(duration, display) {
 
         }
 
-
+  
 
        
         if(perNum === 1){
@@ -158,16 +197,23 @@ function startTimer(duration, display) {
             homeWin.textContent = "WINNING";
             visitWin.textContent = " ";
         }
-        
-        
-  
+
+
         
     }, 1000);
+    
+  
 }
 
+
+
 window.onload = function () {
-    var fiveMinutes = 15 * 1,
+    var oneMinute = 30 * 1,
         display = document.querySelector('#time');
-    startTimer(fiveMinutes, display);
+    startTimer(oneMinute, display);
 };
+
+
+
+
 

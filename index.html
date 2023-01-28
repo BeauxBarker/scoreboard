@@ -10,6 +10,9 @@
 
 
 <body>
+
+    <script src="confetti.js"></script>
+
     <div class="scoreboard--container">
         <div class="top--wrapper">
 <!--TOP LEFT SCORE-->
@@ -157,14 +160,16 @@
             <button onclick="add2A()" class="btnp" aria-label="add 2 points">2</button>
             <button onclick="add3A()" class="btnp" aria-label="add 3 points">3</button>
         </div>
-    </div>  
-    <button id="foul-btn" aria-label="add 1 point to foul">FOUL!</button>
-    <button id="foul-btn-a" aria-label="add 1 point to foul">FOUL!</button>
+    </div>
+    <div id="foul-btn-wrapper"> 
+        <button id="foul-btn" class="foul--btn" aria-label="add 1 point to foul">FOUL</button>
+        <button id="foul-btn-a" class="foul--btn" aria-label="add 1 point to foul">FOUL</button>
+    </div>
+    <marquee class="gameover" id="gameover1">TIE GAME! PRESS RESTART FOR NEW GAME!</marquee>
+    <marquee class="gameover" id="gameover2">TIGERS WIN! PRESS RESTART FOR NEW GAME!</marquee>
+    <marquee class="gameover" id="gameover3">VISITORS WIN! PRESS RESTART FOR NEW GAME!</marquee>
 </div>
-
-<div class="inspiration">
-    <img src="score.png">
-</div>
+<button onclick="window.location.reload()" id="restart">restart</button>
 
 <script src="index.js"></script>
 </body>
