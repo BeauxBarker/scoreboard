@@ -45,7 +45,25 @@ function add3A(){
     
 }
 
+/*********** BREAKS **************/
 
+const breaks = document.getElementById("break--b--h"),
+      breaksBtn = document.getElementById("b-btn-h"),   
+      leftArrow = document.getElementById("arrow__left");
+
+
+const breaksA = document.getElementById("break--b--a"), 
+      breaksBtnA = document.getElementById("b-btn-a"),
+      rightArrow = document.getElementById("arrow__right");
+
+breaksBtn.addEventListener("click", function(){
+    breaks.textContent += "B"
+    leftArrow.textContent = "◀︎"
+})
+breaksBtnA.addEventListener("click", function(){
+    breaksA.textContent += "B"
+    rightArrow.textContent = "▶︎"
+})
 
 
 /*********** FOULS ***************/
@@ -67,13 +85,14 @@ let playerTotalFoul = 0
 foulHbtn.addEventListener("click", function(){
     foulH.textContent = foulHScore += 1
     foulTotal.textContent = playerTotalFoul = 1
-    console.log(foulHScore)
     playerNum.textContent = Math.floor(Math.random() * 100)
 })
 
 
 foulAbtn.addEventListener("click", function(){
     foulA.textContent = foulAScore += 1
+    foulTotal.textContent = playerTotalFoul = 1
+    playerNum.textContent = Math.floor(Math.random() * 100)
 })
 
 
