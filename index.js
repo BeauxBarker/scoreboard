@@ -148,7 +148,7 @@ function startTimer(duration, display) {
             
     
             timer = " ";
-            perNum = 1;
+            perNum = 0;
             foulHScore = 0;
             foulAScore = 0;
             period.textContent = 1
