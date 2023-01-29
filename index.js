@@ -151,7 +151,7 @@ function startTimer(duration, display) {
             perNum = 0;
             foulHScore = 0;
             foulAScore = 0;
-            period.textContent = 1
+            period.textContent = 0
             foulH.textContent = 0
             foulA.textContent = 0
             foulTotal.textContent = " "
