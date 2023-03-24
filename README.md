@@ -14,6 +14,10 @@ I would love to eventually create a 3D object with the same functionality.
 - Notification of winning team per period
 - Confirmation of winning team when time runs out
 
+## DOM
+![image](https://user-images.githubusercontent.com/33534620/227632045-da87a1d8-f5b3-404b-8333-014210a53a41.png)
+
+
 ## Usage
 
 1. Clone the repository
