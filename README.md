@@ -17,6 +17,8 @@ I would love to eventually create a 3D object with the same functionality.
 ## DOM
 ![image](https://user-images.githubusercontent.com/33534620/227632045-da87a1d8-f5b3-404b-8333-014210a53a41.png)
 
+<img width="661" alt="Screen Shot 2023-03-25 at 10 58 45 AM" src="https://user-images.githubusercontent.com/33534620/227733859-8e4f5a0e-2b87-4f00-b9d3-f69e49c2a655.png">
+<img width="742" alt="Screen Shot 2023-03-25 at 11 00 00 AM" src="https://user-images.githubusercontent.com/33534620/227733871-d531fdf1-2cf2-4aff-a188-68d30930642d.png">
 
 ## Usage
 
