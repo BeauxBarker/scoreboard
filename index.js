@@ -1,37 +1,11 @@
 
-// Define constants
-const home = document.getElementById("tiger--score");
-const visit = document.getElementById("visitor--score");
-const breaks = document.getElementById("break--b--h");
-const breaksBtn = document.getElementById("b-btn-h");
-const leftArrow = document.getElementById("arrow__left");
-const breaksA = document.getElementById("break--b--a");
-const breaksBtnA = document.getElementById("b-btn-a");
-const rightArrow = document.getElementById("arrow__right");
-const foulH = document.getElementById("foul-num-h");
-const foulHbtn = document.getElementById("foul-btn");
-const foulA = document.getElementById("foul-num-a");
-const foulAbtn = document.getElementById("foul-btn-a");
-const foulTotal = document.getElementById("foul-total");
-const playerNum = document.getElementById("player-num");
-const savedScore = document.getElementById("home--last--score");
-const savedScoreVisit = document.getElementById("visit--last--score");
-const period = document.getElementById("period");
-const homeWin = document.getElementById("home-win");
-const visitWin = document.getElementById("visit-win");
-const pauseTimer = document.getElementById("pause");
-
-// Define variables
-let scoreH = 0;
-let scoreA = 0;
-let homeValue = [];
-let visitValue = [];
-let foulHScore = 0;
-let foulAScore = 0;
-let playerTotalFoul = 0;
-let perNum = 1;
-let sumH = 0;
-let sumA = 0;
+can you make this code more efficient: 
+let home = document.getElementById("tiger--score")
+let visit = document.getElementById("visitor--score")
+let scoreH = 0
+let scoreA = 0
+let homeValue = [ ]
+let visitValue = [ ]
 
 
 //******* HOME Buttons **********//
@@ -50,6 +24,8 @@ function add3H(){
     home.textContent = scoreH += 3
     homeValue.push(scoreH)  
 }
+
+
 
 
 /********** VISIT BUTTONS **********/
@@ -93,6 +69,20 @@ breaksBtnA.addEventListener("click", function(){
 
 /*********** FOULS ***************/
 
+let foulH = document.getElementById("foul-num-h"),
+    foulHbtn = document.getElementById("foul-btn"),
+    foulA = document.getElementById("foul-num-a"),
+    foulAbtn = document.getElementById("foul-btn-a"),
+    foulTotal = document.getElementById("foul-total"),
+    playerNum = document.getElementById("player-num");
+
+let foulHScore = 0
+let foulAScore = 0
+let playerTotalFoul = 0
+
+
+
+
 foulHbtn.addEventListener("click", function(){
     foulH.textContent = foulHScore += 1
     foulTotal.textContent = playerTotalFoul = 1
@@ -110,11 +100,26 @@ foulAbtn.addEventListener("click", function(){
 
 /*********** TIMER ***************/
 
+let   savedScore = document.getElementById("home--last--score"),
+      savedScoreVisit = document.getElementById("visit--last--score"),
+      period = document.getElementById("period"),
+      homeWin = document.getElementById("home-win"),
+      visitWin = document.getElementById("visit-win"),
+      pauseTimer = document.getElementById("pause");
+      
+
+let perNum = 1 // which period we are in
+let sumH = 0 // total score for home
+let sumA = 0 // total score for visitors
+
+
+
 function startTimer(duration, display) {
 
     let timer = duration, minutes, seconds;
     let endTimer = 0;
     setInterval(function () {
+       
 
         minutes = parseInt(timer / 60, 10);
         seconds = parseInt(timer % 60, 10);
@@ -141,6 +146,8 @@ function startTimer(duration, display) {
             
         else if (endTimer > 4){
             startConfetti()
+            
+    
             timer = " ";
             perNum = 0;
             foulHScore = 0;
@@ -150,36 +157,50 @@ function startTimer(duration, display) {
             foulA.textContent = 0
             foulTotal.textContent = " "
             playerNum.textContent = " "
+
+         
+
         }
+     
 
         else if (--timer < 0) {
             
             timer = duration;
+       
 
             period.textContent = perNum += 1;
             home.textContent = timer - 30;
 
+     
             for (const [i, value] of homeValue.entries()) {
                 if (i === homeValue.length - 1) {
                     sumH += homeValue[i]
                     savedScore.textContent = sumH
                     homeValue[i] = 0
+                    
+             
                 }
             } 
             for (const [i, value] of visitValue.entries()) {
                 if (i === visitValue.length - 1) {
+                    
+
                     sumA += visitValue[i]
                     savedScoreVisit.textContent = sumA
                     visitValue[i] = 0
                     visit.textContent = 0
+                    
                 }
             } 
+            
             
             scoreA = 0
             scoreH = 0
 
+
         }
 
+  
 
        
         if(perNum === 1){
@@ -211,9 +232,3 @@ window.onload = function () {
         display = document.querySelector('#time');
     startTimer(oneMinute, display);
 };
-
-
-
-
-
-
