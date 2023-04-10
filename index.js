@@ -1,5 +1,4 @@
 
-can you make this code more efficient: 
 let home = document.getElementById("tiger--score")
 let visit = document.getElementById("visitor--score")
 let scoreH = 0
